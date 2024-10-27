@@ -2,22 +2,27 @@
 <form class="row" (ngSubmit)="emitCharacter()">
 
   <input type="text"
+  class="form-control mb-2"
   [(ngModel)]="character.name"
   name="name"
-  class="form-control mb-2"
   placeholder="Nombre">
 
   <input type="number"
-
   class="form-control mb-2"
   [(ngModel)]="character.power"
   name="power"
    placeholder="Poder">
 
+   <input type="number"
+   class="form-control mb-2"
+   [(ngModel)]="character.transformations"
+   name="transformations"
+    placeholder="Num. transformaciones">
+
   <button type="submit" class="btn btn-primary">
     Agregar
   </button>
 
-  <pre>{{ character  | json }}</pre>
+  <!-- <pre>{{ character  | json }}</pre> -->
 
 </form>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Character } from '../../interfaces/character.interface';
 
 @Component({
@@ -10,8 +10,33 @@ export class ListComponent {
 
   @Input()
   public characterList: Character[] = [{
+    id: "1",
     name: 'Trunks',
-    power: 10
+    power: 10,
+    transformations: 1
   }]
-}
 
+  //onDetele = Index value : number
+  @Output()
+  //public onDelete: EventEmitter<number> = new EventEmitter();
+  public onDelete: EventEmitter<string> = new EventEmitter();
+
+  //onDeleteCharacter(index : number): void {
+    //console.log({index});
+    //this.onDelete.emit(index);
+
+    //if (id) {
+
+    //this.onDelete.emit(id);
+    //} else {
+    //console.error('El ID es indefinido, no se puede eliminar el personaje.');
+    //}
+
+    onDeleteCharacter(id?: string): void {
+      if (!id)  return;
+    this.onDelete.emit(id);
+
+//     onDeleteCharacter(id: string | undefined): void {
+//       this.onDelete.emit(id);
+    }
+}
